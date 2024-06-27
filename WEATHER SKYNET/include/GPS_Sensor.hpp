@@ -1,7 +1,7 @@
 #include <Arduino.h>
 #include <Adafruit_GPS.h>    // GPS Sensor
 #include <Adafruit_GFX.h>    // Core graphics library
-#include <sensors/gfxThings.hpp>
+#include <GFX_Screen.hpp>
 
 Adafruit_GPS GPS(&Wire);
 #define GPSECHO false
