@@ -8,7 +8,7 @@ Adafruit_GPS GPS(&Wire);
 
 // every IO_LOOP_DELAY milliseconds
 #define IO_LOOP_DELAY 5000
-
+//asdasdas
 
 uint8_t hours = GPS.hour;          ///< GMT hours
 uint8_t mins = GPS.minute;        ///< GMT minutes
