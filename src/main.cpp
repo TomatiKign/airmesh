@@ -1,28 +1,16 @@
 #include "includes.hpp"
 
-// put function declarations here:
-
-
-
-
 void setup() {
-  // put your setup code here, to run once:
+  screen::init();
+  
+  screen::set_status("Initializing Serial Monitor");
   Serial.begin(115200);
   while (!Serial) { delay(10); } // Wait for serial console to open!
-
-
+  
+  screen::set_status("Finished setup");
 }
-
-
-
 
 
 void loop() {
   // put your main code here, to run repeatedly:
 }
-
-
-
-
-
-// put function definitions here:
