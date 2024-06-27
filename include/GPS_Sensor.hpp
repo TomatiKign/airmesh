@@ -6,231 +6,49 @@ Adafruit_GPS GPS(&Wire);
 
 // every IO_LOOP_DELAY milliseconds
 #define IO_LOOP_DELAY 5000
-//asdasdas
 
-int hours = GPS.hour;
-int mins = GPS.minute;
-int secs = GPS.seconds;
-int day = GPS.day;
-int month = GPS.month;
-int year = GPS.year;
 
-double lat = 0; //received latitude
-double lon = 0; //received longitude
-double alt = 0; //reveived altitude
 
 void gpsStart(){
-  delay(1000);
   GPS.begin(0x10); 
   GPS.sendCommand(PMTK_SET_NMEA_OUTPUT_RMCGGA);
   GPS.sendCommand(PMTK_SET_NMEA_UPDATE_1HZ); 
   GPS.sendCommand(PGCMD_ANTENNA);
   GPS.println(PMTK_Q_RELEASE);
+  
 }
 
-/**
- * @brief Return time in hour
- * 
- * @return int 
- */
+//location->save(value, GPS.latitude, GPS.longitude, GPS.altitude);
 
-int returnHour() {
-  char h = GPS.read();
-
-  if (GPSECHO){
-    if (h) Serial.print(h);
-  }
-  if (GPS.newNMEAreceived()) {
-    if (!GPS.parse(GPS.lastNMEA())){
-      return;
+/*
+if (millis() - timer > 5000) {
+    timer = millis(); // reset the timer
+    Serial.print("\nTime: ");
+    if (GPS.hour < 10) { Serial.print('0'); }
+    Serial.print(GPS.hour, DEC); Serial.print(':');
+    if (GPS.minute < 10) { Serial.print('0'); }
+    Serial.print(GPS.minute, DEC); Serial.print(':');
+    if (GPS.seconds < 10) { Serial.print('0'); }
+    Serial.print(GPS.seconds, DEC); Serial.print('.');
+    if (GPS.milliseconds < 10) {
+      Serial.print("00");
+    } else if (GPS.milliseconds > 9 && GPS.milliseconds < 100) {
+      Serial.print("0");
     }
-  }
-
-  hours = GPS.hour;
-
-  return hours;
-}
-
-/**
- * @brief Return time in minutes
- * 
- * @return int 
- */
-
-int returnMin() {
-  char m = GPS.read();
-
-  if (GPSECHO){
-    if (m) Serial.print(m);
-  }
-  if (GPS.newNMEAreceived()) {
-    if (!GPS.parse(GPS.lastNMEA())){
-      return;
-    }
-  }
-
-  mins = GPS.minute;
-
-  return mins;
-}
-
-/**
- * @brief Return time in second
- * 
- * @return int 
- */
-
-int returnSec() {
-  char s = GPS.read();
-
-  if (GPSECHO){
-    if (s) Serial.print(s);
-  }
-  if (GPS.newNMEAreceived()) {
-    if (!GPS.parse(GPS.lastNMEA())){
-      return;
-    }
-  }
-
-  secs = GPS.seconds;
-
-  return secs;
-}
-
-/**
- * @brief Return date in day
- * 
- * @return int 
- */
-
-int returnDay() {
-  char d = GPS.read();
-
-  if (GPSECHO){
-    if (d) Serial.print(d);
-  }
-  if (GPS.newNMEAreceived()) {
-    if (!GPS.parse(GPS.lastNMEA())){
-      return;
-    }
-  }
-
-  day = GPS.day;
-
-  return day;
-}
-
-/**
- * @brief Return date in month
- * 
- * @return int 
- */
-
-int returnMonth() {
-  char mo = GPS.read();
-
-  if (GPSECHO){
-    if (mo) Serial.print(mo);
-  }
-  if (GPS.newNMEAreceived()) {
-    if (!GPS.parse(GPS.lastNMEA())){
-      return;
-    }
-  }
-
-  month = GPS.month;
-
-  return month;
-}
-
-/**
- * @brief Return date in year
- * 
- * @return int 
- */
-
-int returnYear() {
-  char y = GPS.read();
-
-  if (GPSECHO){
-    if (y) Serial.print(y);
-  }
-  if (GPS.newNMEAreceived()) {
-    if (!GPS.parse(GPS.lastNMEA())){
-      return;
-    }
-  }
-
-  year = GPS.year;
-
-  return year;
-}
-
-/**
- * @brief Return longitude
- * 
- * @return int 
- */
-
-int returnLongitude() {
-  char lo = GPS.read();
-
-  if (GPSECHO){
-    if (lo) Serial.print(lo);
-  }
-  if (GPS.newNMEAreceived()) {
-    if (!GPS.parse(GPS.lastNMEA())){
-      return;
-    }
-  }
-
-  lon = GPS.longitude;
-
-  return lon;
-}
-
-/**
- * @brief Return latitude
- * 
- * @return int 
- */
-
-int returnLatitude() {
-  char la = GPS.read();
-
-  if (GPSECHO){
-    if (la) Serial.print(la);
-  }
-  if (GPS.newNMEAreceived()) {
-    if (!GPS.parse(GPS.lastNMEA())){
-      return;
-    }
-  }
-
-  lat = GPS.latitude;
-
-  return lat;
-}
-
-/**
- * @brief Return altitude
- * 
- * @return int 
- */
-
-int returnAltitude() {
-  char al = GPS.read();
-
-  if (GPSECHO){
-    if (al) Serial.print(al);
-  }
-  if (GPS.newNMEAreceived()) {
-    if (!GPS.parse(GPS.lastNMEA())){
-      return;
-    }
-  }
-
-  alt = GPS.altitude;
-
-  return alt;
-}
+    Serial.println(GPS.milliseconds);
+    Serial.print("Date: ");
+    Serial.print(GPS.day, DEC); Serial.print('/');
+    Serial.print(GPS.month, DEC); Serial.print("/20");
+    Serial.println(GPS.year, DEC);
+    Serial.print("Fix: "); Serial.print((int)GPS.fix);
+    Serial.print(" quality: "); Serial.println((int)GPS.fixquality);
+   if (GPS.fix) {
+      Serial.print("Location: ");
+      Serial.print(GPS.latitude, 4); Serial.print(GPS.lat);
+      Serial.print(", ");
+      Serial.print(GPS.longitude, 4); Serial.println(GPS.lon);
+      Serial.print("Speed (knots): "); Serial.println(GPS.speed);
+      Serial.print("Angle: "); Serial.println(GPS.angle);
+      Serial.print("Altitude: "); Serial.println(GPS.altitude);
+      Serial.print("Satellites: "); Serial.println((int)GPS.satellites);
+    }*/
