@@ -14,5 +14,5 @@
 
 //other files
 #include <config.hpp>
-#include <sensors/gpsThings.hpp>
-#include <sensors/bme(Temp).hpp>
+#include <GPS_Sensor.hpp>
+#include <BME_Sensor.hpp>
