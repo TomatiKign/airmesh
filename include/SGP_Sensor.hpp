@@ -10,23 +10,6 @@ Adafruit_SGP40 sgp;
 #define BME_CS 10
 
 #define SEALEVELPRESSURE_HPA (1013.25)
-void StartSGP(){
-
-  if (! sgp.begin()){
-    Serial.println("SGP40 sensor not found :(");
-    while (1);
-  }
-
-  if (!bme.begin()) {
-        Serial.println("Could not find a valid BME680 sensor, check wiring!");
-        while (1);
-    }
-
-  Serial.print("Found BME688 + SGP40 serial #");
-  Serial.print(sgp.serialnumber[0], HEX);
-  Serial.print(sgp.serialnumber[1], HEX);
-  Serial.println(sgp.serialnumber[2], HEX);
-}
 
 void sgpLoop() {
   int32_t voc_index;
@@ -39,6 +22,9 @@ void sgpLoop() {
   Serial.println(voc_index);
 }
 
+/*
+return the air quality value
+*/
 float returnVoc(){
   bme.setTemperatureOversampling(BME680_OS_8X);
   Temp = bme.temperature;
