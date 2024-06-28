@@ -43,7 +43,7 @@ void loop()
 
   if (millis() - timerSPG > 5000)
   {
-    timer = millis();
+    timerSPG = millis();
     // put your main code here, to run repeatedly:
     sgpLoop();
     BMEloop();
