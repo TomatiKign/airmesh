@@ -1,5 +1,5 @@
-#define IO_USERNAME  "Tomati"
-#define IO_KEY       "aio_BaqX42bmbiCR3J2wN0kvTqIXemUm"
+#define IO_USERNAME  "aspiringLich"
+#define IO_KEY       "aio_VysO9970FyMbi89gwdjjfKuPUUxQ"
 #define WIFI_SSID "TEMP"
 #define WIFI_PASS "TEMP"
 

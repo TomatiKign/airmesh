@@ -17,3 +17,4 @@
 #include <GPS_Sensor.hpp>
 #include <SGP_Sensor.hpp>
 #include <screen.hpp>
+#include <IO_config.hpp>
