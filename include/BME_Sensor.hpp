@@ -97,3 +97,22 @@ float ReturnAlt() {
     
     return Altitude;
 }
+void BMEloop() {
+  Serial.print("Temperature = ");
+  Serial.print(ReturnTemp());
+  Serial.println(" *C");
+
+  Serial.print("Pressure = ");
+  Serial.print(ReturnPres());
+  Serial.println(" hPa");
+
+  Serial.print("Humidity = ");
+  Serial.print(ReturnHumid());
+  Serial.println(" %");
+
+  Serial.print("Gas = ");
+  Serial.print(ReturnGasRes());
+  Serial.println(" KOhms");
+
+  Altitude = ReturnAlt();
+}
