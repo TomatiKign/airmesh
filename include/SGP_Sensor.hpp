@@ -14,17 +14,21 @@ Adafruit_SGP40 sgp;
 void sgpLoop() {
   int32_t voc_index;
   bme.setTemperatureOversampling(BME680_OS_8X);
-  bme.setHumidityOversampling(BME680_OS_2X);
-
   Temp = bme.temperature;
+  bme.setHumidityOversampling(BME680_OS_2X);
   Humidity = bme.humidity;
-  // Serial.print("Temp *C = ");
-  // Serial.print(bme.temperature);
-  // Serial.print("\t\t");
-  // Serial.print("Hum. % = ");
-  // Serial.println(bme.humidity);
   voc_index = sgp.measureVocIndex(Temp, Humidity);
-  // Serial.print("Voc Index: ");
-  // Serial.println(voc_index);
-  delay(1000);
+  Serial.print("Voc Index: ");
+  Serial.println(voc_index);
+}
+
+/*
+return the air quality value
+*/
+float returnVoc(){
+  bme.setTemperatureOversampling(BME680_OS_8X);
+  Temp = bme.temperature;
+  bme.setHumidityOversampling(BME680_OS_2X);
+  Humidity = bme.humidity;
+  return sgp.measureVocIndex(Temp, Humidity);
 }
