@@ -1,6 +1,6 @@
 #include "includes.hpp"
 uint32_t timerGPS = millis(); // this value integer will hold the current count value for our sketch
-uint32_t timerSPG = millis();
+uint32_t timerSGP = millis();
 uint32_t timerGFX = millis();
 uint32_t timerIO = millis();
 void setup()
@@ -41,9 +41,9 @@ void loop()
   gpsLoop();
   screen::reset();
 
-  if (millis() - timerSPG > 5000)
+  if (millis() - timerSGP > 5000)
   {
-    timerSPG = millis();
+    timerSGP = millis();
     // put your main code here, to run repeatedly:
     sgpLoop();
     BMEloop();
