@@ -35,12 +35,15 @@ void loop() {
 
   // put your main code here, to run repeatedly:
   sgpLoop();
+  BMEloop();
   GPS.read();
   
   screen::canvas.print("H/T/P: ");
   screen::canvas.print(ReturnHumid()), screen::canvas.print(", ");
   screen::canvas.print(ReturnTemp()), screen::canvas.print(", ");
   screen::canvas.println(ReturnPres());
+  screen::canvas.print("VOC: ");
+  screen::canvas.println(returnVoc());
 
   screen::canvas.print("Time: ");
   if (GPS.hour < 10)
