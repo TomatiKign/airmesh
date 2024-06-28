@@ -48,11 +48,9 @@ void loop()
     sgpLoop();
     BMEloop();
 
-    screen::canvas.print("H/T/P: ");
+    screen::canvas.print("H/T/V: ");
     screen::canvas.print(ReturnHumid()), screen::canvas.print(", ");
-    screen::canvas.print(ReturnTemp()), screen::canvas.print(", ");
-    screen::canvas.println(ReturnPres());
-    screen::canvas.print("VOC: ");
+    screen::canvas.print(ReturnTemp()), screen::canvas.print(", "); 
     screen::canvas.println(returnVoc());
 
     gpsPrint();
