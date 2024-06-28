@@ -58,6 +58,9 @@ void loop()
     gpsPrint();
 
     screen::draw();
-    // location->save(value, GPS.latitude, GPS.longitude, GPS.altitude);
+    temper->save(ReturnTemp, GPS.latitude, GPS.longitude, GPS.altitude);
+    humidity->save(ReturnHumid, GPS.latitude, GPS.longitude, GPS.altitude);
+    pressure->save(ReturnPres, GPS.latitude, GPS.longitude, GPS.altitude);
+    quality->save(returnVoc, GPS.latitude, GPS.longitude, GPS.altitude);
   }
 }

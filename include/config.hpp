@@ -1,7 +1,10 @@
+#ifndef CONFIG_H
+#define CONFIG_H
+
 #define IO_USERNAME  "aspiringLich"
 #define IO_KEY       "aio_VysO9970FyMbi89gwdjjfKuPUUxQ"
-#define WIFI_SSID "TEMP"
-#define WIFI_PASS "TEMP"
+#define WIFI_SSID "Ore-sama"
+#define WIFI_PASS "dontaskme"
 
 #include "AdafruitIO_WiFi.h"
 
@@ -9,6 +12,7 @@
     defined(ADAFRUIT_PYPORTAL)
 // Configure the pins used for the ESP32 connection
 #if !defined(SPIWIFI_SS) // if the wifi definition isnt in the board variant
+// Don't change the names of these #define's! they match the variant ones
 #define SPIWIFI SPI
 #define SPIWIFI_SS 10 // Chip select pin
 #define NINA_ACK 9    // a.k.a BUSY or READY pin
@@ -19,4 +23,6 @@ AdafruitIO_WiFi io(IO_USERNAME, IO_KEY, WIFI_SSID, WIFI_PASS, SPIWIFI_SS,
                    NINA_ACK, NINA_RESETN, NINA_GPIO0, &SPIWIFI);
 #else
 AdafruitIO_WiFi io(IO_USERNAME, IO_KEY, WIFI_SSID, WIFI_PASS);
+#endif
+
 #endif
