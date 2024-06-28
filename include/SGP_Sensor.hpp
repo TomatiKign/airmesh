@@ -1,7 +1,7 @@
 #include "Adafruit_SGP40.h"
 #include "Adafruit_SHT31.h"
 #include "Arduino.h"
-#include "BME_Sensor"
+#include "BME_Sensor.hpp"
 Adafruit_SGP40 sgp;
 
 #define BME_SCK 13
