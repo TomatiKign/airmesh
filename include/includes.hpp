@@ -15,5 +15,5 @@
 //other files
 #include <config.hpp>
 #include <GPS_Sensor.hpp>
-#include <BME_Sensor.hpp>
+#include <SGP_Sensor.hpp>
 #include <screen.hpp>
