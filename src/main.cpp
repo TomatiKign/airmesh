@@ -40,12 +40,16 @@ void loop()
   io.run();
   gpsLoop();
   screen::reset();
-
-  if (millis() - timerSPG > 5000)
+  if (millis() - timerSPG > 2500)
   {
     timerSPG = millis();
-    // put your main code here, to run repeatedly:
     sgpLoop();
+  }
+  if (millis() - timerGPS > 5000)
+  {
+    timerGPS = millis();
+    // put your main code here, to run repeatedly:
+    
     BMEloop();
 
     screen::canvas.print("H/T/V: ");
