@@ -1,9 +1,8 @@
-/**
- * @file main.cpp
- * @brief main function executing the program
- */
-
-#include "includes.hpp"
+#include <Arduino.h>
+#include <IO_config.hpp>
+#include <screen.hpp>
+#include <GPS_Sensor.hpp>
+#include <SGP_Sensor.hpp>
 
 /**
  * @brief variables to hold timer information for sensors and adafruit io. used to control how frequently the programs are ran
