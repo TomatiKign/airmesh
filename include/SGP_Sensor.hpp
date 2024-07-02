@@ -11,6 +11,10 @@ Adafruit_SGP40 sgp;
 
 #define SEALEVELPRESSURE_HPA (1013.25)
 
+/**
+ * @brief loop that cheks the temperature and humidity and uses them to calculate a VOC index which is printed to the serial monitor
+ */
+
 void sgpLoop() {
   int32_t voc_index;
   bme.setTemperatureOversampling(BME680_OS_8X);
@@ -22,10 +26,12 @@ void sgpLoop() {
   Serial.println(voc_index);
 }
 
-/*
-return the air quality value
-*/
-float returnVoc(){
+/**
+ * @brief takes temperature and humidity from the BME sensor to calculate the VOC index
+ * @return float of the VOC index
+ */
+
+float GetVoc(){
   bme.setTemperatureOversampling(BME680_OS_8X);
   Temp = bme.temperature;
   bme.setHumidityOversampling(BME680_OS_2X);

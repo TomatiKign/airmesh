@@ -1,12 +1,28 @@
 #ifndef CONFIG_H
 #define CONFIG_H
 
+/**
+ * @brief defines the adafruit io username and key the microcontroller will send to
+ * @note this part is edited to the key found on the personal adafruit io profile
+ */
+
 #define IO_USERNAME  "aspiringLich"
 #define IO_KEY       "aio_VysO9970FyMbi89gwdjjfKuPUUxQ"
-#define WIFI_SSID "Ore-sama"
-#define WIFI_PASS "dontaskme"
+
+/**
+ * @brief defines the wifi connection for the microcontroller
+ * @warning this MUST work for anything to upload to adafruit io
+ */
+
+#define WIFI_SSID "tomatoketchup"
+#define WIFI_PASS "ketchuptomato"
 
 #include "AdafruitIO_WiFi.h"
+
+/**
+ * @brief sets up adafruit io to connect through WiFi
+ * @note if using ethernet look into documentation for section to use in this file
+ */
 
 #if defined(USE_AIRLIFT) || defined(ADAFRUIT_METRO_M4_AIRLIFT_LITE) ||         \
     defined(ADAFRUIT_PYPORTAL)

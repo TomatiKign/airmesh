@@ -8,6 +8,9 @@ Adafruit_GPS GPS(&Wire);
 #define IO_LOOP_DELAY 5000
 
 
+/**
+ * @brief initializing the gps sensor
+ */
 
 void gpsStart(){
   GPS.begin(0x10); 
@@ -17,6 +20,10 @@ void gpsStart(){
   GPS.println(PMTK_Q_RELEASE);
   
 }
+
+/**
+ * @brief prints gps updates when a signal is received
+ */
 
 void gpsLoop(){
   char c = GPS.read();
@@ -34,10 +41,11 @@ void gpsLoop(){
   }
 }
 
-//location->save(value, GPS.latitude, GPS.longitude, GPS.altitude);
+/**
+ * @brief prints time and location information to the serial monitor
+ * @note seconds was removed for tidyness and lack of need
+ */
 
-/*
-*/
 void gpsPrint(){
   screen::canvas.print("Time: "); 
       if (GPS.hour < 10) { screen::canvas.print('0'); }
