@@ -1,3 +1,6 @@
+#ifndef IO_CONFIG_HPP
+#define IO_CONFIG_HPP
+
 #include <Arduino.h>
 #include <SPI.h>
 #include <config.hpp>
@@ -30,3 +33,5 @@ void ioSetup(){
   Serial.println();
   Serial.println(io.statusText());
 }
+
+#endif // IO_CONFIG_HPP

@@ -1,7 +1,11 @@
-#include "Adafruit_SGP40.h"
-#include "Adafruit_SHT31.h"
-#include "Arduino.h"
-#include "BME_Sensor.hpp"
+#ifndef SGP_SENSOR_HPP
+#define SGP_SENSOR_HPP
+
+#include <Adafruit_SGP40.h>
+#include <Adafruit_SHT31.h>
+#include <Arduino.h>
+#include <BME_Sensor.hpp>
+
 Adafruit_SGP40 sgp;
 
 #define BME_SCK 13
@@ -38,3 +42,5 @@ float GetVoc(){
   Humidity = bme.humidity;
   return sgp.measureVocIndex(Temp, Humidity);
 }
+
+#endif // SGP_SENSOR_HPP

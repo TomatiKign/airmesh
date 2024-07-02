@@ -1,10 +1,10 @@
+#ifndef SCREEN_HPP
+#define SCREEN_HPP
+
 #include <Adafruit_ST7789.h>
 #include <Arduino.h>
 #include <Fonts/FreeSans12pt7b.h>
 #include <Fonts/FreeSans9pt7b.h>
-
-#ifndef SCREEN_H
-#define SCREEN_H
 
 namespace screen {
 
@@ -64,4 +64,4 @@ void set_status(const char *status) {
 
 } // namespace screen
 
-#endif
+#endif // SCREEN_HPP

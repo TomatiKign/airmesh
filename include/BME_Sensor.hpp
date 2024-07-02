@@ -1,8 +1,11 @@
+#ifndef BME_SENSOR_HPP
+#define BME_SENSOR_HPP
+
 #include <Arduino.h>
 #include <Wire.h>
 #include <SPI.h>
 #include <Adafruit_Sensor.h>
-#include "Adafruit_BME680.h"
+#include <Adafruit_BME680.h>
 
 #define BME_SCK 13
 #define BME_MISO 12
@@ -122,3 +125,5 @@ void BMEloop() {
 
   Altitude = GetAlt();
 }
+
+#endif // BME_SENSOR_HPP

@@ -1,6 +1,10 @@
+#ifndef GPS_SENSOR_HPP
+#define GPS_SENSOR_HPP
+
 #include <Arduino.h>
 #include <Adafruit_GPS.h>    // GPS Sensor
 #include <screen.hpp>
+
 Adafruit_GPS GPS(&Wire);
 #define GPSECHO false
 
@@ -66,3 +70,5 @@ void gpsPrint(){
     screen::canvas.println(GPS.latitude);
     screen::canvas.print("Altitude: "); screen::canvas.println(GPS.altitude);
 }
+
+#endif // GPS_SENSOR_HPP
